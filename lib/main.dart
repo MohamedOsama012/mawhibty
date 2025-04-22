@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mawhibty/constants/colors.dart';
 import 'package:mawhibty/views/start/splash_screen.dart';
 
 void main() {
