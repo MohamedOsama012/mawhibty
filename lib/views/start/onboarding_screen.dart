@@ -16,19 +16,19 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   final List<Map<String, String>> onboardingData = [
     {
       'image': 'assets/images/onboarding1.jpg',
-      'title': 'مرحباً بك في موهبتي',
-      'desc': 'منصة لاكتشاف وتنمية مهارات ومواهب الأطفال'
+      'title': 'رحلتك بدأت... ورينا عضلاتك!',
+      'desc': 'كل مستوى تفتحه بيقرّبك من حلمك!\nيلا ورينا لمستك السحرية'
     },
     {
       'image': 'assets/images/onboarding2.jpg',
-      'title': 'تابع تقدم طفلك',
-      'desc': 'يمكنك متابعة أداء وتقدم طفلك في الأنشطة المختلفة'
+      'title': 'المهارة مش كلام... إثبتها!',
+      'desc': 'صور نفسك، ارفع الفيديو، وخلي الكورة\n تتكلم عنك',
     },
     {
       'image': 'assets/images/onboarding3.jpg',
-      'title': 'ابدأ الآن',
-      'desc': 'سجّل الآن وابدأ في رحلة تطوير مهارات طفلك'
-    },
+      'title': 'ليفل جديد؟ نجمة جديدة؟ يلا بينا!',
+      'desc': 'كل ما تكمّل مهمة، تكسب نجمة...\n وسكة الاحتراف بتقرب',
+    }
   ];
 
   void _onDone() {
@@ -38,24 +38,42 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     );
   }
 
-  Widget _buildPageContent(Map<String, String> data) {
+  Widget _buildPageContent(
+      Map<String, String> data, double screenWidth, double screenHeight) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Image.asset(data['image']!, height: 250),
-        const SizedBox(height: 30),
-        Text(
-          data['title']!,
-          style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-          textAlign: TextAlign.center,
+        Image.asset(
+          data['image']!,
+          height: screenHeight * 0.35,
+          width: screenWidth * 0.7,
+          fit: BoxFit.contain,
         ),
-        const SizedBox(height: 16),
+        SizedBox(height: screenHeight * 0.05),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30.0),
+          padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.1),
+          child: Text(
+            data['title']!,
+            style: const TextStyle(
+              fontSize: 24,
+              color: primaryColor,
+              fontWeight: FontWeight.w400,
+            ),
+            textAlign: TextAlign.center,
+          ),
+        ),
+        SizedBox(height: screenHeight * 0.03),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.08),
           child: Text(
             data['desc']!,
-            style: const TextStyle(fontSize: 16, color: Colors.grey),
-            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: screenWidth * 0.045,
+              color: secondaryTextColor,
+              height: 1.5,
+              fontWeight: FontWeight.w400,
+            ),
+            textAlign: TextAlign.start,
           ),
         ),
       ],
@@ -64,9 +82,15 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('موهبتي'),
+        centerTitle: true,
+        backgroundColor: Colors.white,
+        elevation: 0,
       ),
       backgroundColor: Colors.white,
       body: Column(
@@ -75,51 +99,47 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             child: PageView.builder(
               controller: controller,
               itemCount: onboardingData.length,
+              physics: const NeverScrollableScrollPhysics(),
               onPageChanged: (index) {
                 setState(() {
                   isLastPage = index == onboardingData.length - 1;
                 });
               },
-              itemBuilder: (_, index) =>
-                  _buildPageContent(onboardingData[index]),
+              itemBuilder: (_, index) => _buildPageContent(
+                  onboardingData[index], screenWidth, screenHeight),
             ),
           ),
-          const SizedBox(height: 30),
           Padding(
-            padding:
-                const EdgeInsets.only(left: 30.0, right: 30.0, bottom: 80.0),
-            child: SizedBox(
-              width: double.infinity,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: primaryColor,
-                  minimumSize: const Size(328, 56),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(24),
-                  ),
+            padding: EdgeInsets.symmetric(vertical: screenHeight * 0.04),
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: primaryColor,
+                minimumSize: const Size(328, 56),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(24),
                 ),
-                onPressed: () {
-                  if (isLastPage) {
-                    _onDone();
-                  } else {
-                    controller.nextPage(
-                      duration: const Duration(milliseconds: 300),
-                      curve: Curves.easeInOut,
-                    );
-                  }
-                },
-                child: Text(
-                  isLastPage ? 'ابدأ' : 'التالي',
-                  style: const TextStyle(
-                    fontSize: 24,
-                    color: Colors.white,
-                    fontWeight: FontWeight.w500,
-                  ),
+              ),
+              onPressed: () {
+                if (isLastPage) {
+                  _onDone();
+                } else {
+                  controller.nextPage(
+                    duration: const Duration(milliseconds: 300),
+                    curve: Curves.easeInOut,
+                  );
+                }
+              },
+              child: Text(
+                isLastPage ? 'ابدأ' : 'التالي',
+                style: const TextStyle(
+                  fontSize: 24,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w500,
                 ),
               ),
             ),
           ),
-          const SizedBox(height: 40),
+          SizedBox(height: MediaQuery.of(context).size.height * 0.05),
         ],
       ),
     );
