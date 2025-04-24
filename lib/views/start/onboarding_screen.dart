@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mawhibty/constants/colors.dart';
+import 'package:mawhibty/generated/l10n.dart';
 import 'package:mawhibty/views/auth/screens/login_screen.dart';
 
 class OnboardingScreen extends StatefulWidget {
@@ -12,30 +13,27 @@ class OnboardingScreen extends StatefulWidget {
 class _OnboardingScreenState extends State<OnboardingScreen> {
   final PageController controller = PageController();
   bool isLastPage = false;
+  int currentPage = 0;
 
-  final List<Map<String, String>> onboardingData = [
-    {
-      'image': 'assets/images/onboarding1.jpg',
-      'title': 'رحلتك بدأت... ورينا عضلاتك!',
-      'desc': 'كل مستوى تفتحه بيقرّبك من حلمك!\nيلا ورينا لمستك السحرية'
-    },
-    {
-      'image': 'assets/images/onboarding2.jpg',
-      'title': 'المهارة مش كلام... إثبتها!',
-      'desc': 'صور نفسك، ارفع الفيديو، وخلي الكورة\n تتكلم عنك',
-    },
-    {
-      'image': 'assets/images/onboarding3.jpg',
-      'title': 'ليفل جديد؟ نجمة جديدة؟ يلا بينا!',
-      'desc': 'كل ما تكمّل مهمة، تكسب نجمة...\n وسكة الاحتراف بتقرب',
-    }
-  ];
-
-  void _onDone() {
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(builder: (context) => const LoginScreen()),
-    );
+  List<Map<String, String>> _getOnboardingData(BuildContext context) {
+    final loc = S.of(context);
+    return [
+      {
+        'image': 'assets/images/onboarding1.jpg',
+        'title': loc.onboardingTitle1,
+        'desc': loc.onboardingDesc1,
+      },
+      {
+        'image': 'assets/images/onboarding2.jpg',
+        'title': loc.onboardingTitle2,
+        'desc': loc.onboardingDesc2,
+      },
+      {
+        'image': 'assets/images/onboarding3.jpg',
+        'title': loc.onboardingTitle3,
+        'desc': loc.onboardingDesc3,
+      }
+    ];
   }
 
   Widget _buildPageContent(
@@ -84,10 +82,36 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
     final screenWidth = MediaQuery.of(context).size.width;
+    final onboardingData = _getOnboardingData(context);
+    final loc = S.of(context);
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('موهبتي'),
+        title: Text(loc.appTitle),
+        leading: currentPage != 0
+            ? Padding(
+                padding: EdgeInsetsDirectional.only(
+                  start: MediaQuery.of(context).size.width * 0.04,
+                ),
+                child: CircleAvatar(
+                  radius: 16,
+                  backgroundColor: const Color.fromRGBO(251, 248, 236, 1),
+                  child: IconButton(
+                    icon: const Icon(
+                      Icons.arrow_back_ios_new,
+                      color: primaryColor,
+                      size: 20,
+                    ),
+                    onPressed: () {
+                      controller.previousPage(
+                        duration: const Duration(milliseconds: 300),
+                        curve: Curves.easeInOut,
+                      );
+                    },
+                  ),
+                ),
+              )
+            : null,
         centerTitle: true,
         backgroundColor: Colors.white,
         elevation: 0,
@@ -102,6 +126,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               physics: const NeverScrollableScrollPhysics(),
               onPageChanged: (index) {
                 setState(() {
+                  currentPage = index;
                   isLastPage = index == onboardingData.length - 1;
                 });
               },
@@ -121,7 +146,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               ),
               onPressed: () {
                 if (isLastPage) {
-                  _onDone();
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const LoginScreen()),
+                  );
                 } else {
                   controller.nextPage(
                     duration: const Duration(milliseconds: 300),
@@ -130,7 +159,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 }
               },
               child: Text(
-                isLastPage ? 'ابدأ' : 'التالي',
+                isLastPage ? loc.start : loc.next,
                 style: const TextStyle(
                   fontSize: 24,
                   color: Colors.white,
