@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       locale: const Locale('ar'),
       localizationsDelegates: const [
         S.delegate,
@@ -26,7 +27,10 @@ class MyApp extends StatelessWidget {
       title: 'موهبتي',
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.white,
-        textTheme: GoogleFonts.cairoTextTheme(),
+        textTheme: GoogleFonts.cairoTextTheme().apply(
+          bodyColor: primaryTextColor,
+          displayColor: primaryTextColor,
+        ),
         appBarTheme: AppBarTheme(
           backgroundColor: Colors.white,
           elevation: 0,

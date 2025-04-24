@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mawhibty/constants/colors.dart';
 import 'package:mawhibty/generated/l10n.dart';
 import 'package:mawhibty/views/auth/screens/login_screen.dart';
+import 'package:mawhibty/views/widgets/elevated_button_widget.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -134,39 +135,22 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   onboardingData[index], screenWidth, screenHeight),
             ),
           ),
-          Padding(
-            padding: EdgeInsets.symmetric(vertical: screenHeight * 0.04),
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: primaryColor,
-                minimumSize: const Size(328, 56),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(24),
-                ),
-              ),
-              onPressed: () {
-                if (isLastPage) {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const LoginScreen()),
-                  );
-                } else {
-                  controller.nextPage(
-                    duration: const Duration(milliseconds: 300),
-                    curve: Curves.easeInOut,
-                  );
-                }
-              },
-              child: Text(
-                isLastPage ? loc.start : loc.next,
-                style: const TextStyle(
-                  fontSize: 24,
-                  color: Colors.white,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-            ),
+          CustomElevatedButton(
+            borderRadius: 24,
+            onPressed: () {
+              if (isLastPage) {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const LoginScreen()),
+                );
+              } else {
+                controller.nextPage(
+                  duration: const Duration(milliseconds: 300),
+                  curve: Curves.easeInOut,
+                );
+              }
+            },
+            buttonText: isLastPage ? loc.start : loc.next,
           ),
           SizedBox(height: MediaQuery.of(context).size.height * 0.05),
         ],
