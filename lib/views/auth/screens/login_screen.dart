@@ -3,7 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mawhibty/constants/colors.dart';
 import 'package:mawhibty/controller/cubit/login/login_cubit.dart';
 import 'package:mawhibty/controller/cubit/login/login_states.dart';
+import 'package:mawhibty/controller/validation.dart';
+import 'package:mawhibty/generated/l10n.dart';
 import 'package:mawhibty/views/auth/screens/forget_password_screen.dart';
+import 'package:mawhibty/views/auth/screens/register_screen.dart';
 import 'package:mawhibty/views/widgets/elevated_button_widget.dart';
 import 'package:mawhibty/views/widgets/text_field_widget.dart';
 
@@ -27,9 +30,9 @@ class LoginScreen extends StatelessWidget {
           return Scaffold(
             appBar: AppBar(
               centerTitle: true,
-              title: const Text(
-                'تسجيل الدخول',
-                style: TextStyle(color: primaryTextColor),
+              title: Text(
+                S.of(context).login_screen_title,
+                style: const TextStyle(color: primaryTextColor),
               ),
             ),
             body: LayoutBuilder(
@@ -40,7 +43,6 @@ class LoginScreen extends StatelessWidget {
                 double horizontalPadding = screenWidth * 0.05;
 
                 return SingleChildScrollView(
-                  physics: const NeverScrollableScrollPhysics(),
                   child: Padding(
                     padding: EdgeInsetsDirectional.only(
                       top: verticalPadding,
@@ -57,13 +59,15 @@ class LoginScreen extends StatelessWidget {
                           children: [
                             Row(
                               children: [
-                                Text(
-                                  'أهلا بيك! يلا ندخل على جولتك!',
-                                  style: TextStyle(
-                                    fontSize:
-                                        MediaQuery.of(context).size.width *
-                                            0.0598,
-                                    fontWeight: FontWeight.w400,
+                                Expanded(
+                                  child: Text(
+                                    S.of(context).login_screen_welcome,
+                                    style: TextStyle(
+                                      fontSize:
+                                          MediaQuery.of(context).size.width *
+                                              0.0598,
+                                      fontWeight: FontWeight.w400,
+                                    ),
                                   ),
                                 ),
                               ],
@@ -74,14 +78,11 @@ class LoginScreen extends StatelessWidget {
                               child: Column(
                                 children: [
                                   CustomTextField(
-                                    validator: (value) {
-                                      if (value!.isEmpty) {
-                                        return 'برجاء ادخال البريد الالكتروني';
-                                      }
-                                      return null;
-                                    },
+                                    validator: (value) =>
+                                        validateEmail(value, context),
                                     controller: emailController,
-                                    hintText: 'البريد الالكتروني',
+                                    hintText:
+                                        S.of(context).login_screen_email_hint,
                                     keyboardType: TextInputType.emailAddress,
                                     borderColor: primaryColor,
                                     borderWidth: 3.0,
@@ -89,20 +90,18 @@ class LoginScreen extends StatelessWidget {
                                   ),
                                   SizedBox(height: screenHeight * 0.03),
                                   CustomTextField(
-                                    validator: (value) {
-                                      if (value!.isEmpty) {
-                                        return 'برجاء ادخال كلمة المرور';
-                                      }
-                                      return null;
-                                    },
+                                    validator: (value) =>
+                                        validatePassword(value, context),
                                     controller: passwordController,
-                                    hintText: 'كلمة المرور',
+                                    hintText: S
+                                        .of(context)
+                                        .login_screen_password_hint,
                                     suffix: IconButton(
                                       icon: Icon(cubit.suffix),
                                       onPressed: cubit.changeVisibility,
                                     ),
                                     isPassword: cubit.isPassword,
-                                    keyboardType: TextInputType.emailAddress,
+                                    keyboardType: TextInputType.visiblePassword,
                                     borderColor: primaryColor,
                                     borderWidth: 3.0,
                                     radius: 32.0,
@@ -119,9 +118,11 @@ class LoginScreen extends StatelessWidget {
                                                     const ForgetPasswordScreen()),
                                           );
                                         },
-                                        child: const Text(
-                                          'نسيت كلمة المرور؟',
-                                          style: TextStyle(
+                                        child: Text(
+                                          S
+                                              .of(context)
+                                              .login_screen_forget_password,
+                                          style: const TextStyle(
                                             decoration:
                                                 TextDecoration.underline,
                                             color:
@@ -139,24 +140,35 @@ class LoginScreen extends StatelessWidget {
                                         // Login action
                                       }
                                     },
-                                    buttonText: 'يلا بينا!',
+                                    buttonText:
+                                        S.of(context).login_screen_login_button,
                                   ),
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      const Text(
-                                        'ليس لدي حساب؟',
-                                        style: TextStyle(
+                                      Text(
+                                        S
+                                            .of(context)
+                                            .login_screen_create_account,
+                                        style: const TextStyle(
                                           color:
                                               Color.fromRGBO(124, 124, 124, 1),
                                           fontSize: 16,
                                         ),
                                       ),
                                       TextButton(
-                                        onPressed: () {},
-                                        child: const Text(
-                                          'انشاء حساب',
-                                          style: TextStyle(
+                                        onPressed: () {
+                                          Navigator.pushReplacement(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      const RegisterScreen()));
+                                        },
+                                        child: Text(
+                                          S
+                                              .of(context)
+                                              .login_screen_create_account_button,
+                                          style: const TextStyle(
                                             decoration:
                                                 TextDecoration.underline,
                                             color:

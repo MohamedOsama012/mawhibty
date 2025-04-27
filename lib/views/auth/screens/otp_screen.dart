@@ -3,6 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mawhibty/constants/colors.dart';
 import 'package:mawhibty/controller/cubit/forget_password/forget_password_cubit.dart';
 import 'package:mawhibty/controller/cubit/forget_password/forget_password_states.dart';
+import 'package:mawhibty/generated/l10n.dart';
+import 'package:mawhibty/views/auth/screens/new_password_screen.dart';
+import 'package:mawhibty/views/widgets/custom_back_button_widget.dart';
 import 'package:mawhibty/views/widgets/elevated_button_widget.dart';
 import 'package:pinput/pinput.dart';
 
@@ -21,10 +24,11 @@ class OtpScreen extends StatelessWidget {
         final cubit = ForgetPasswordCubit.get(context);
         return Scaffold(
           appBar: AppBar(
-            title: const Text(
-              'تحقق من OTP',
-              style: TextStyle(color: primaryTextColor),
+            title: Text(
+              S.of(context).otp_screen_title,
+              style: const TextStyle(color: primaryTextColor),
             ),
+            leading: const CustomBackButtonWidget(),
           ),
           body: LayoutBuilder(
             builder: (context, constraints) {
@@ -37,7 +41,6 @@ class OtpScreen extends StatelessWidget {
               boxSize = boxSize.clamp(50, 80);
 
               return SingleChildScrollView(
-                physics: const NeverScrollableScrollPhysics(),
                 child: Padding(
                   padding: EdgeInsetsDirectional.only(
                     top: verticalPadding,
@@ -54,11 +57,13 @@ class OtpScreen extends StatelessWidget {
                         children: [
                           Row(
                             children: [
-                              Text(
-                                'الكود جالك... افتح الرسالة و ادخل \n الأرقام!',
-                                style: TextStyle(
-                                  fontSize: screenWidth * 0.0598,
-                                  fontWeight: FontWeight.w400,
+                              Expanded(
+                                child: Text(
+                                  S.of(context).otp_screen_instruction,
+                                  style: TextStyle(
+                                    fontSize: screenWidth * 0.0598,
+                                    fontWeight: FontWeight.w400,
+                                  ),
                                 ),
                               ),
                             ],
@@ -74,6 +79,7 @@ class OtpScreen extends StatelessWidget {
                                     textDirection: TextDirection.ltr,
                                     child: Pinput(
                                       length: 4,
+                                      keyboardType: TextInputType.number,
                                       controller: pinController,
                                       preFilledWidget: const Text(
                                         '-',
@@ -81,10 +87,11 @@ class OtpScreen extends StatelessWidget {
                                             fontSize: 20, color: Colors.grey),
                                       ),
                                       validator: (value) {
+                                        print(value?.length);
                                         if (value == null || value.isEmpty) {
-                                          return 'الرجاء إدخال الرمز';
+                                          return S.of(context).otp_required;
                                         } else if (value.length < 4) {
-                                          return 'الرجاء إدخال الرمز الكامل';
+                                          return S.of(context).otp_not_complete;
                                         }
                                         return null;
                                       },
@@ -108,7 +115,7 @@ class OtpScreen extends StatelessWidget {
                                 ),
                                 const SizedBox(height: 20),
                                 Text(
-                                  '00:03:00م ',
+                                  '00:03:00',
                                   style: TextStyle(
                                     fontSize: screenWidth * 0.04,
                                     color: primaryTextColor,
@@ -117,18 +124,20 @@ class OtpScreen extends StatelessWidget {
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    const Text(
-                                      'لم تتلق الرمز؟',
-                                      style: TextStyle(
+                                    Text(
+                                      S
+                                          .of(context)
+                                          .otp_screen_didnot_receive_code,
+                                      style: const TextStyle(
                                         color: Color.fromRGBO(124, 124, 124, 1),
                                         fontSize: 16,
                                       ),
                                     ),
                                     TextButton(
                                       onPressed: () {},
-                                      child: const Text(
-                                        'أعد الإرسال',
-                                        style: TextStyle(
+                                      child: Text(
+                                        S.of(context).otp_screen_resend_button,
+                                        style: const TextStyle(
                                           decoration: TextDecoration.underline,
                                           color: Color.fromRGBO(30, 30, 47, 1),
                                           fontSize: 14,
@@ -141,9 +150,20 @@ class OtpScreen extends StatelessWidget {
                                 CustomElevatedButton(
                                   buttonWidth: double.infinity,
                                   onPressed: () {
-                                    if (formKey.currentState!.validate()) {}
+                                    if (formKey.currentState!.validate()) {
+                                      Navigator.pushReplacement(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                BlocProvider.value(
+                                                  value: cubit,
+                                                  child:
+                                                      const NewPasswordScreen(),
+                                                )),
+                                      );
+                                    }
                                   },
-                                  buttonText: 'تحقق',
+                                  buttonText: S.of(context).otp_button,
                                 ),
                               ],
                             ),

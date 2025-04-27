@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:mawhibty/constants/colors.dart';
+import 'package:mawhibty/controller/cubit/bloc_observer.dart';
 import 'package:mawhibty/generated/l10n.dart';
 import 'package:mawhibty/views/start/splash_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  Bloc.observer = MyBlocObserver();
   runApp(const MyApp());
 }
 

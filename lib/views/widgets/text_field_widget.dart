@@ -12,12 +12,14 @@ class CustomTextField extends StatelessWidget {
   final Widget? suffix;
   final Widget? prefix;
   final String? Function(String?)? validator;
+  final Function()? onTap;
+  final bool readOnly;
 
   const CustomTextField({
     super.key,
     required this.controller,
     required this.hintText,
-    required this.validator,
+    this.validator,
     this.keyboardType = TextInputType.text,
     this.borderColor = primaryColor,
     this.borderWidth = 3.0,
@@ -25,6 +27,8 @@ class CustomTextField extends StatelessWidget {
     this.isPassword = false,
     this.suffix,
     this.prefix,
+    this.onTap,
+    this.readOnly = false,
   });
 
   @override
@@ -37,6 +41,8 @@ class CustomTextField extends StatelessWidget {
         keyboardType: keyboardType,
         cursorColor: primaryColor,
         validator: validator,
+        onTap: onTap,
+        readOnly: readOnly,
         decoration: InputDecoration(
           hintText: hintText,
           suffixIcon: suffix,

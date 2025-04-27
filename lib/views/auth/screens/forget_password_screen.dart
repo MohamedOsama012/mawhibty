@@ -3,7 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mawhibty/constants/colors.dart';
 import 'package:mawhibty/controller/cubit/forget_password/forget_password_cubit.dart';
 import 'package:mawhibty/controller/cubit/forget_password/forget_password_states.dart';
+import 'package:mawhibty/controller/validation.dart';
+import 'package:mawhibty/generated/l10n.dart';
 import 'package:mawhibty/views/auth/screens/otp_screen.dart';
+import 'package:mawhibty/views/widgets/custom_back_button_widget.dart';
 import 'package:mawhibty/views/widgets/elevated_button_widget.dart';
 import 'package:mawhibty/views/widgets/text_field_widget.dart';
 
@@ -25,10 +28,11 @@ class ForgetPasswordScreen extends StatelessWidget {
           final cubit = ForgetPasswordCubit.get(context);
           return Scaffold(
             appBar: AppBar(
-              title: const Text(
-                'نسيت كلمةالمرور؟',
-                style: TextStyle(color: primaryTextColor),
+              title: Text(
+                S.of(context).forget_password_screen_title,
+                style: const TextStyle(color: primaryTextColor),
               ),
+              leading: const CustomBackButtonWidget(),
             ),
             body: LayoutBuilder(
               builder: (context, constraints) {
@@ -37,7 +41,6 @@ class ForgetPasswordScreen extends StatelessWidget {
                 double verticalPadding = screenHeight * 0.03;
                 double horizontalPadding = screenWidth * 0.05;
                 return SingleChildScrollView(
-                  physics: const NeverScrollableScrollPhysics(),
                   child: Padding(
                     padding: EdgeInsetsDirectional.only(
                       top: verticalPadding,
@@ -54,13 +57,17 @@ class ForgetPasswordScreen extends StatelessWidget {
                           children: [
                             Row(
                               children: [
-                                Text(
-                                  'حصل خير… هنرجّعلك حسابك\nفي ثواني!',
-                                  style: TextStyle(
-                                    fontSize:
-                                        MediaQuery.of(context).size.width *
-                                            0.0598,
-                                    fontWeight: FontWeight.w400,
+                                Expanded(
+                                  child: Text(
+                                    S
+                                        .of(context)
+                                        .forget_password_screen_instruction,
+                                    style: TextStyle(
+                                      fontSize:
+                                          MediaQuery.of(context).size.width *
+                                              0.0598,
+                                      fontWeight: FontWeight.w400,
+                                    ),
                                   ),
                                 ),
                               ],
@@ -71,15 +78,12 @@ class ForgetPasswordScreen extends StatelessWidget {
                               child: Column(
                                 children: [
                                   CustomTextField(
-                                    validator: (value) {
-                                      if (value!.isEmpty) {
-                                        return 'الرجاء إدخال بريد إلكتروني أو رقم هاتف صالح';
-                                      }
-                                      return null;
-                                    },
+                                    validator: (value) =>
+                                        validateEmail(value, context),
                                     controller: emailController,
-                                    hintText:
-                                        'أدخل الهاتف أو البريد الإلكتروني',
+                                    hintText: S
+                                        .of(context)
+                                        .forget_password_screen_email_hint,
                                     keyboardType: TextInputType.emailAddress,
                                     borderColor: primaryColor,
                                     borderWidth: 3.0,
@@ -102,7 +106,9 @@ class ForgetPasswordScreen extends StatelessWidget {
                                         );
                                       }
                                     },
-                                    buttonText: 'ابعتولي الكود!',
+                                    buttonText: S
+                                        .of(context)
+                                        .forget_password_screen_send_code_button,
                                   ),
                                 ],
                               ),

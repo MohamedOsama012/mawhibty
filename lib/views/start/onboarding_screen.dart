@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mawhibty/constants/colors.dart';
 import 'package:mawhibty/generated/l10n.dart';
 import 'package:mawhibty/views/auth/screens/login_screen.dart';
+import 'package:mawhibty/views/widgets/custom_back_button_widget.dart';
 import 'package:mawhibty/views/widgets/elevated_button_widget.dart';
 
 class OnboardingScreen extends StatefulWidget {
@@ -90,27 +91,13 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       appBar: AppBar(
         title: Text(loc.appTitle),
         leading: currentPage != 0
-            ? Padding(
-                padding: EdgeInsetsDirectional.only(
-                  start: MediaQuery.of(context).size.width * 0.04,
-                ),
-                child: CircleAvatar(
-                  radius: 16,
-                  backgroundColor: const Color.fromRGBO(251, 248, 236, 1),
-                  child: IconButton(
-                    icon: const Icon(
-                      Icons.arrow_back_ios_new,
-                      color: primaryColor,
-                      size: 20,
-                    ),
-                    onPressed: () {
-                      controller.previousPage(
-                        duration: const Duration(milliseconds: 300),
-                        curve: Curves.easeInOut,
-                      );
-                    },
-                  ),
-                ),
+            ? CustomBackButtonWidget(
+                onPressed: () {
+                  controller.previousPage(
+                    duration: const Duration(milliseconds: 300),
+                    curve: Curves.easeInOut,
+                  );
+                },
               )
             : null,
         centerTitle: true,
