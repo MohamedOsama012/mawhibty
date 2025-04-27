@@ -1,16 +1,11 @@
 {
-    "appTitle": "Mawhibty",
-
-    "onboardingTitle1": "Your journey begins... Show us your skills!",
-    "onboardingDesc1": "Every level brings you closer to your dream!\nLet’s see your magic touch.",
-
-    "onboardingTitle2": "Skills aren’t just words... Prove them!",
-    "onboardingDesc2": "Record yourself, upload the video,\nand let the ball speak for you.",
-
-    "onboardingTitle3": "New level? New star? Let’s go!",
-    "onboardingDesc3": "Complete tasks to earn stars...\nYour path to pro starts here.",
-    
-    "next": "Next",
-    "start": "Start"
-  }
-  
+  "appTitle": "Mawhibty",
+  "onboardingTitle1": "Your journey begins... Show us your skills!",
+  "onboardingDesc1": "Every level brings you closer to your dream!\nLet’s see your magic touch.",
+  "onboardingTitle2": "Skills aren’t just words... Prove them!",
+  "onboardingDesc2": "Record yourself, upload the video,\nand let the ball speak for you.",
+  "onboardingTitle3": "New level? New star? Let’s go!",
+  "onboardingDesc3": "Complete tasks to earn stars...\nYour path to pro starts here.",
+  "next": "Next",
+  "start": "Start"
+}

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mawhibty/constants/colors.dart';
-import 'package:mawhibty/controller/cubit/login_cubit.dart';
-import 'package:mawhibty/controller/states/login_states.dart';
+import 'package:mawhibty/controller/cubit/login/login_cubit.dart';
+import 'package:mawhibty/controller/cubit/login/login_states.dart';
 import 'package:mawhibty/views/auth/screens/forget_password_screen.dart';
 import 'package:mawhibty/views/widgets/elevated_button_widget.dart';
 import 'package:mawhibty/views/widgets/text_field_widget.dart';
@@ -26,6 +26,7 @@ class LoginScreen extends StatelessWidget {
           final cubit = LoginCubit.get(context);
           return Scaffold(
             appBar: AppBar(
+              centerTitle: true,
               title: const Text(
                 'تسجيل الدخول',
                 style: TextStyle(color: primaryTextColor),
@@ -54,12 +55,14 @@ class LoginScreen extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Row(
+                            Row(
                               children: [
                                 Text(
                                   'أهلا بيك! يلا ندخل على جولتك!',
                                   style: TextStyle(
-                                    fontSize: 24,
+                                    fontSize:
+                                        MediaQuery.of(context).size.width *
+                                            0.0598,
                                     fontWeight: FontWeight.w400,
                                   ),
                                 ),

@@ -46,7 +46,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           data['image']!,
           height: screenHeight * 0.35,
           width: screenWidth * 0.7,
-          fit: BoxFit.contain,
+          fit: BoxFit.fill,
         ),
         SizedBox(height: screenHeight * 0.05),
         Padding(

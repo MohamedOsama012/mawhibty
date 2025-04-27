@@ -7,12 +7,14 @@ import 'package:mawhibty/views/auth/screens/otp_screen.dart';
 import 'package:mawhibty/views/widgets/elevated_button_widget.dart';
 import 'package:mawhibty/views/widgets/text_field_widget.dart';
 
-class ForgetPasswordScreen extends StatelessWidget {
-  const ForgetPasswordScreen({super.key});
+class NewPasswordScreen extends StatelessWidget {
+  const NewPasswordScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController emailController = TextEditingController();
+    final TextEditingController passwordController = TextEditingController();
+    final TextEditingController confirmPasswordController =
+        TextEditingController();
     final formKey = GlobalKey<FormState>();
 
     return BlocProvider(
@@ -77,9 +79,8 @@ class ForgetPasswordScreen extends StatelessWidget {
                                       }
                                       return null;
                                     },
-                                    controller: emailController,
-                                    hintText:
-                                        'أدخل الهاتف أو البريد الإلكتروني',
+                                    controller: passwordController,
+                                    hintText: 'كلمة المرور',
                                     keyboardType: TextInputType.emailAddress,
                                     borderColor: primaryColor,
                                     borderWidth: 3.0,
