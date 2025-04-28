@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:mawhibty/generated/l10n.dart';
 
 String? validateEmail(String? value, BuildContext context) {
@@ -29,6 +30,33 @@ String? validateName(String? value, BuildContext context) {
   }
   if (value.length < 3) {
     return S.of(context).name_short;
+  }
+  return null;
+}
+
+String? validatePhone(String? value, BuildContext context) {
+  if (value == null || value.isEmpty) {
+    return S.of(context).phoneNumberRequired;
+  }
+  final phoneRegExp = RegExp(r'^\+?[1-9]\d{1,14}$');
+  if (!phoneRegExp.hasMatch(value)) {
+    return S.of(context).phoneNumberInvalid;
+  }
+  return null;
+}
+
+// Date validation function
+String? validateDate(String? value, BuildContext context) {
+  if (value == null || value.isEmpty) {
+    return S.of(context).birthDateRequired;
+  }
+  try {
+    DateTime parsedDate = DateFormat('yyyy-MM-dd').parseStrict(value);
+    if (parsedDate.isAfter(DateTime.now())) {
+      return S.of(context).birthDateFuture;
+    }
+  } catch (e) {
+    return S.of(context).birthDateInvalid;
   }
   return null;
 }

@@ -23,6 +23,26 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "appTitle": MessageLookupByLibrary.simpleMessage("Mawhibty"),
+    "birthDate": MessageLookupByLibrary.simpleMessage("Your Birth Date"),
+    "birthDateFuture": MessageLookupByLibrary.simpleMessage(
+      "The date must be in the past.",
+    ),
+    "birthDateInvalid": MessageLookupByLibrary.simpleMessage(
+      "Invalid date. Please choose a valid date.",
+    ),
+    "birthDateRequired": MessageLookupByLibrary.simpleMessage(
+      "Please enter your birth date.",
+    ),
+    "chooseGender": MessageLookupByLibrary.simpleMessage("Choose Your Gender"),
+    "choosePosition": MessageLookupByLibrary.simpleMessage(
+      "What\'s your position?",
+    ),
+    "chooseSport": MessageLookupByLibrary.simpleMessage(
+      "What sport do you play?",
+    ),
+    "completeProfile": MessageLookupByLibrary.simpleMessage(
+      "Complete Your Profile",
+    ),
     "email_invalid": MessageLookupByLibrary.simpleMessage(
       "Please enter a valid email address.",
     ),
@@ -45,6 +65,9 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage("Send Code"),
     "forget_password_screen_title": MessageLookupByLibrary.simpleMessage(
       "Forgot Password?",
+    ),
+    "genderRequired": MessageLookupByLibrary.simpleMessage(
+      "Please select your gender.",
     ),
     "login_screen_create_account": MessageLookupByLibrary.simpleMessage(
       "Don\'t have an account?",
@@ -90,22 +113,22 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "next": MessageLookupByLibrary.simpleMessage("Next"),
     "onboardingDesc1": MessageLookupByLibrary.simpleMessage(
-      "Every level brings you closer to your dream! Let’s see your magic touch.",
+      "Whether you\'re a rising star or a club looking for talent, our platform opens the doors. Ready to chase your dream?",
     ),
     "onboardingDesc2": MessageLookupByLibrary.simpleMessage(
-      "Record yourself, upload the video, and let the ball speak for you.",
+      "Upload your skills or set your team\'s needs — we\'ll handle the rest. We\'re here to get you to the next level.",
     ),
     "onboardingDesc3": MessageLookupByLibrary.simpleMessage(
-      "Complete tasks to earn stars... Your path to pro starts here.",
+      "With every challenge or request, your chances to shine grow. Let’s take the journey together!",
     ),
     "onboardingTitle1": MessageLookupByLibrary.simpleMessage(
-      "Your journey begins... Show us your skills!",
+      "Your Sports Journey Starts Here!",
     ),
     "onboardingTitle2": MessageLookupByLibrary.simpleMessage(
-      "Skills aren’t just words... Prove them!",
+      "Show Your Skills... or Discover Them!",
     ),
     "onboardingTitle3": MessageLookupByLibrary.simpleMessage(
-      "New level? New star? Let’s go!",
+      "Every Step Takes You Closer to Greatness!",
     ),
     "otp_button": MessageLookupByLibrary.simpleMessage("Verify"),
     "otp_invalid": MessageLookupByLibrary.simpleMessage(
@@ -135,6 +158,19 @@ class MessageLookup extends MessageLookupByLibrary {
     "password_short": MessageLookupByLibrary.simpleMessage(
       "Password must be at least 8 characters long.",
     ),
+    "phoneNumber": MessageLookupByLibrary.simpleMessage("Your Phone Number"),
+    "phoneNumberInvalid": MessageLookupByLibrary.simpleMessage(
+      "Invalid phone number. Please enter a valid phone number.",
+    ),
+    "phoneNumberRequired": MessageLookupByLibrary.simpleMessage(
+      "Please enter your phone number.",
+    ),
+    "positionRequired": MessageLookupByLibrary.simpleMessage(
+      "Please select your position.",
+    ),
+    "registerAndStartJourney": MessageLookupByLibrary.simpleMessage(
+      "Sign Up & Start Your Journey!",
+    ),
     "register_screen_confirm_password_hint":
         MessageLookupByLibrary.simpleMessage("Confirm Password"),
     "register_screen_email_hint": MessageLookupByLibrary.simpleMessage("Email"),
@@ -157,6 +193,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "register_screen_welcome": MessageLookupByLibrary.simpleMessage(
       "Ready to start your football journey? Sign up and show us your skills!",
     ),
+    "sportRequired": MessageLookupByLibrary.simpleMessage(
+      "Please select a sport.",
+    ),
     "start": MessageLookupByLibrary.simpleMessage("Start"),
+    "welcomeToStadiums": MessageLookupByLibrary.simpleMessage(
+      "Let\'s get you familiar with the stadiums!",
+    ),
   };
 }

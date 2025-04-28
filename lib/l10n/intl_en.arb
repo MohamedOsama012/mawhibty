@@ -1,11 +1,16 @@
 {
   "appTitle": "Mawhibty",
-  "onboardingTitle1": "Your journey begins... Show us your skills!",
-  "onboardingDesc1": "Every level brings you closer to your dream! Let’s see your magic touch.",
-  "onboardingTitle2": "Skills aren’t just words... Prove them!",
-  "onboardingDesc2": "Record yourself, upload the video, and let the ball speak for you.",
-  "onboardingTitle3": "New level? New star? Let’s go!",
-  "onboardingDesc3": "Complete tasks to earn stars... Your path to pro starts here.",
+  
+    "onboardingTitle1": "Your Sports Journey Starts Here!",
+    "onboardingDesc1": "Whether you're a rising star or a club looking for talent, our platform opens the doors. Ready to chase your dream?",
+    
+    "onboardingTitle2": "Show Your Skills... or Discover Them!",
+    "onboardingDesc2": "Upload your skills or set your team's needs — we'll handle the rest. We're here to get you to the next level.",
+    
+    "onboardingTitle3": "Every Step Takes You Closer to Greatness!",
+    "onboardingDesc3": "With every challenge or request, your chances to shine grow. Let’s take the journey together!",
+  
+  
   "next": "Next",
   "start": "Start",
 
@@ -53,8 +58,27 @@
   "register_screen_confirm_password_hint": "Confirm Password",
   "register_screen_register_button": "Let's continue!",
   "register_screen_have_account": "Already have an account?",
-  "register_screen_login_button": "Login"
+  "register_screen_login_button": "Login",
 
 
+  "completeProfile": "Complete Your Profile",
+  "welcomeToStadiums": "Let's get you familiar with the stadiums!",
+  "birthDate": "Your Birth Date",
+  "phoneNumber": "Your Phone Number",
+  "chooseGender": "Choose Your Gender",
+  "chooseSport": "What sport do you play?",
+  "choosePosition": "What's your position?",
+  "registerAndStartJourney": "Sign Up & Start Your Journey!",
+  "birthDateRequired": "Please enter your birth date.",
+  "birthDateInvalid": "Invalid date. Please choose a valid date.",
+  "birthDateFuture": "The date must be in the past.",
 
+  "phoneNumberRequired": "Please enter your phone number.",
+  "phoneNumberInvalid": "Invalid phone number. Please enter a valid phone number.",
+
+  "genderRequired": "Please select your gender.",
+  
+  "sportRequired": "Please select a sport.",
+  
+  "positionRequired": "Please select your position."
 }

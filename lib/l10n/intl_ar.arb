@@ -1,11 +1,11 @@
 {
   "appTitle": "موهبتي",
-  "onboardingTitle1": "رحلتك بدأت... ورينا عضلاتك!",
-  "onboardingDesc1": "كل مستوى تفتحه بيقرّبك من حلمك! يلا ورينا لمستك السحرية",
-  "onboardingTitle2": "المهارة مش كلام... إثبتها!",
-  "onboardingDesc2": "صور نفسك، ارفع الفيديو، وخلي الكورة تتكلم عنك",
-  "onboardingTitle3": "ليفل جديد؟ نجمة جديدة؟ يلا بينا!",
-  "onboardingDesc3": "كل ما تكمّل مهمة، تكسب نجمة... وسكة الاحتراف بتقرب",
+  "onboardingTitle1": "مستقبلك الرياضي بيبدأ هنا!",
+  "onboardingDesc1": "سواء كنت لاعب موهوب أو نادي بيدوّر على نجوم، منصتنا بتفتحلك الطريق... جاهز تحقق حلمك؟",
+  "onboardingTitle2": "أثبت موهبتك... أو اكتشفها!",
+  "onboardingDesc2": "صور مهاراتك وارفعها، أو حدّد متطلبات فريقك وسيب الباقي علينا... إحنا هنا عشان نوصلك للطريق الصح.",
+  "onboardingTitle3": "رحلة النجومية تبدأ بخطوة!",
+  "onboardingDesc3":"مع كل تحدي أو طلب، فرصتك للتميز بتكبر... يلا نكمل المشوار مع بعض!",
   "next": "التالي",
   "start": "ابدأ",
 
@@ -54,8 +54,25 @@
   "register_screen_have_account": "لدي حساب؟",
   "register_screen_login_button": "تسجيل الدخول",
 
-  "account_setup_title": "كمل ملفك",
-  "account_setup_welcome": "يلا نعرفك على الملاعب!",
-  "account_setup_date_hint": "تاريخ ميلادك"
+  "completeProfile": "كمل ملفك",
+  "welcomeToStadiums": "يلا نعرفك على الملاعب!",
+  "birthDate": "تاريخ ميلادك",
+  "phoneNumber": "رقم الموبايل",
+  "chooseGender": "حدد نوعك",
+  "chooseSport": "بتلعب إيه؟",
+  "choosePosition": "مركزك إيه؟",
+  "registerAndStartJourney": "سجّل وابدأ الرحلة!",
+  "birthDateRequired": "يرجى إدخال تاريخ ميلادك.",
+  "birthDateInvalid": "تاريخ غير صالح، يرجى اختيار تاريخ صحيح.",
+  "birthDateFuture": "التاريخ يجب أن يكون في الماضي.",
+
+  "phoneNumberRequired": "يرجى إدخال رقم الموبايل.",
+  "phoneNumberInvalid": "رقم موبايل غير صالح، يرجى إدخال رقم صحيح.",
+
+  "genderRequired": "يرجى اختيار نوعك.",
   
+  "sportRequired": "يرجى اختيار الرياضة.",
+  
+  "positionRequired": "يرجى اختيار مركزك."
+
 }

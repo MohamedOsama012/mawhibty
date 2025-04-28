@@ -23,6 +23,20 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "appTitle": MessageLookupByLibrary.simpleMessage("موهبتي"),
+    "birthDate": MessageLookupByLibrary.simpleMessage("تاريخ ميلادك"),
+    "birthDateFuture": MessageLookupByLibrary.simpleMessage(
+      "التاريخ يجب أن يكون في الماضي.",
+    ),
+    "birthDateInvalid": MessageLookupByLibrary.simpleMessage(
+      "تاريخ غير صالح، يرجى اختيار تاريخ صحيح.",
+    ),
+    "birthDateRequired": MessageLookupByLibrary.simpleMessage(
+      "يرجى إدخال تاريخ ميلادك.",
+    ),
+    "chooseGender": MessageLookupByLibrary.simpleMessage("حدد نوعك"),
+    "choosePosition": MessageLookupByLibrary.simpleMessage("مركزك إيه؟"),
+    "chooseSport": MessageLookupByLibrary.simpleMessage("بتلعب إيه؟"),
+    "completeProfile": MessageLookupByLibrary.simpleMessage("كمل ملفك"),
     "email_invalid": MessageLookupByLibrary.simpleMessage(
       "برجاء ادخال بريد الكتروني صالح.",
     ),
@@ -46,6 +60,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "forget_password_screen_title": MessageLookupByLibrary.simpleMessage(
       "نسيت كلمةالمرور؟",
     ),
+    "genderRequired": MessageLookupByLibrary.simpleMessage("يرجى اختيار نوعك."),
     "login_screen_create_account": MessageLookupByLibrary.simpleMessage(
       "ليس لدي حساب؟",
     ),
@@ -88,22 +103,22 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "next": MessageLookupByLibrary.simpleMessage("التالي"),
     "onboardingDesc1": MessageLookupByLibrary.simpleMessage(
-      "كل مستوى تفتحه بيقرّبك من حلمك! يلا ورينا لمستك السحرية",
+      "سواء كنت لاعب موهوب أو نادي بيدوّر على نجوم، منصتنا بتفتحلك الطريق... جاهز تحقق حلمك؟",
     ),
     "onboardingDesc2": MessageLookupByLibrary.simpleMessage(
-      "صور نفسك، ارفع الفيديو، وخلي الكورة تتكلم عنك",
+      "صور مهاراتك وارفعها، أو حدّد متطلبات فريقك وسيب الباقي علينا... إحنا هنا عشان نوصلك للطريق الصح.",
     ),
     "onboardingDesc3": MessageLookupByLibrary.simpleMessage(
-      "كل ما تكمّل مهمة، تكسب نجمة... وسكة الاحتراف بتقرب",
+      "مع كل تحدي أو طلب، فرصتك للتميز بتكبر... يلا نكمل المشوار مع بعض!",
     ),
     "onboardingTitle1": MessageLookupByLibrary.simpleMessage(
-      "رحلتك بدأت... ورينا عضلاتك!",
+      "مستقبلك الرياضي بيبدأ هنا!",
     ),
     "onboardingTitle2": MessageLookupByLibrary.simpleMessage(
-      "المهارة مش كلام... إثبتها!",
+      "أثبت موهبتك... أو اكتشفها!",
     ),
     "onboardingTitle3": MessageLookupByLibrary.simpleMessage(
-      "ليفل جديد؟ نجمة جديدة؟ يلا بينا!",
+      "رحلة النجومية تبدأ بخطوة!",
     ),
     "otp_button": MessageLookupByLibrary.simpleMessage("تحقق"),
     "otp_invalid": MessageLookupByLibrary.simpleMessage(
@@ -133,6 +148,19 @@ class MessageLookup extends MessageLookupByLibrary {
     "password_short": MessageLookupByLibrary.simpleMessage(
       "كلمة المرور يجب أن تكون مكونة من 8 أحرف على الأقل.",
     ),
+    "phoneNumber": MessageLookupByLibrary.simpleMessage("رقم الموبايل"),
+    "phoneNumberInvalid": MessageLookupByLibrary.simpleMessage(
+      "رقم موبايل غير صالح، يرجى إدخال رقم صحيح.",
+    ),
+    "phoneNumberRequired": MessageLookupByLibrary.simpleMessage(
+      "يرجى إدخال رقم الموبايل.",
+    ),
+    "positionRequired": MessageLookupByLibrary.simpleMessage(
+      "يرجى اختيار مركزك.",
+    ),
+    "registerAndStartJourney": MessageLookupByLibrary.simpleMessage(
+      "سجّل وابدأ الرحلة!",
+    ),
     "register_screen_confirm_password_hint":
         MessageLookupByLibrary.simpleMessage("تأكيد كلمة المرور"),
     "register_screen_email_hint": MessageLookupByLibrary.simpleMessage(
@@ -155,6 +183,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "register_screen_welcome": MessageLookupByLibrary.simpleMessage(
       "جاهز تبدأ مشوارك الكروي؟ سجّل و ورينا مهاراتك!",
     ),
+    "sportRequired": MessageLookupByLibrary.simpleMessage(
+      "يرجى اختيار الرياضة.",
+    ),
     "start": MessageLookupByLibrary.simpleMessage("ابدأ"),
+    "welcomeToStadiums": MessageLookupByLibrary.simpleMessage(
+      "يلا نعرفك على الملاعب!",
+    ),
   };
 }

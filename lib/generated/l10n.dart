@@ -60,60 +60,60 @@ class S {
     return Intl.message('Mawhibty', name: 'appTitle', desc: '', args: []);
   }
 
-  /// `Your journey begins... Show us your skills!`
+  /// `Your Sports Journey Starts Here!`
   String get onboardingTitle1 {
     return Intl.message(
-      'Your journey begins... Show us your skills!',
+      'Your Sports Journey Starts Here!',
       name: 'onboardingTitle1',
       desc: '',
       args: [],
     );
   }
 
-  /// `Every level brings you closer to your dream! Let’s see your magic touch.`
+  /// `Whether you're a rising star or a club looking for talent, our platform opens the doors. Ready to chase your dream?`
   String get onboardingDesc1 {
     return Intl.message(
-      'Every level brings you closer to your dream! Let’s see your magic touch.',
+      'Whether you\'re a rising star or a club looking for talent, our platform opens the doors. Ready to chase your dream?',
       name: 'onboardingDesc1',
       desc: '',
       args: [],
     );
   }
 
-  /// `Skills aren’t just words... Prove them!`
+  /// `Show Your Skills... or Discover Them!`
   String get onboardingTitle2 {
     return Intl.message(
-      'Skills aren’t just words... Prove them!',
+      'Show Your Skills... or Discover Them!',
       name: 'onboardingTitle2',
       desc: '',
       args: [],
     );
   }
 
-  /// `Record yourself, upload the video, and let the ball speak for you.`
+  /// `Upload your skills or set your team's needs — we'll handle the rest. We're here to get you to the next level.`
   String get onboardingDesc2 {
     return Intl.message(
-      'Record yourself, upload the video, and let the ball speak for you.',
+      'Upload your skills or set your team\'s needs — we\'ll handle the rest. We\'re here to get you to the next level.',
       name: 'onboardingDesc2',
       desc: '',
       args: [],
     );
   }
 
-  /// `New level? New star? Let’s go!`
+  /// `Every Step Takes You Closer to Greatness!`
   String get onboardingTitle3 {
     return Intl.message(
-      'New level? New star? Let’s go!',
+      'Every Step Takes You Closer to Greatness!',
       name: 'onboardingTitle3',
       desc: '',
       args: [],
     );
   }
 
-  /// `Complete tasks to earn stars... Your path to pro starts here.`
+  /// `With every challenge or request, your chances to shine grow. Let’s take the journey together!`
   String get onboardingDesc3 {
     return Intl.message(
-      'Complete tasks to earn stars... Your path to pro starts here.',
+      'With every challenge or request, your chances to shine grow. Let’s take the journey together!',
       name: 'onboardingDesc3',
       desc: '',
       args: [],
@@ -560,6 +560,166 @@ class S {
     return Intl.message(
       'Login',
       name: 'register_screen_login_button',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Complete Your Profile`
+  String get completeProfile {
+    return Intl.message(
+      'Complete Your Profile',
+      name: 'completeProfile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Let's get you familiar with the stadiums!`
+  String get welcomeToStadiums {
+    return Intl.message(
+      'Let\'s get you familiar with the stadiums!',
+      name: 'welcomeToStadiums',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your Birth Date`
+  String get birthDate {
+    return Intl.message(
+      'Your Birth Date',
+      name: 'birthDate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your Phone Number`
+  String get phoneNumber {
+    return Intl.message(
+      'Your Phone Number',
+      name: 'phoneNumber',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Choose Your Gender`
+  String get chooseGender {
+    return Intl.message(
+      'Choose Your Gender',
+      name: 'chooseGender',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `What sport do you play?`
+  String get chooseSport {
+    return Intl.message(
+      'What sport do you play?',
+      name: 'chooseSport',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `What's your position?`
+  String get choosePosition {
+    return Intl.message(
+      'What\'s your position?',
+      name: 'choosePosition',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign Up & Start Your Journey!`
+  String get registerAndStartJourney {
+    return Intl.message(
+      'Sign Up & Start Your Journey!',
+      name: 'registerAndStartJourney',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter your birth date.`
+  String get birthDateRequired {
+    return Intl.message(
+      'Please enter your birth date.',
+      name: 'birthDateRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Invalid date. Please choose a valid date.`
+  String get birthDateInvalid {
+    return Intl.message(
+      'Invalid date. Please choose a valid date.',
+      name: 'birthDateInvalid',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The date must be in the past.`
+  String get birthDateFuture {
+    return Intl.message(
+      'The date must be in the past.',
+      name: 'birthDateFuture',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter your phone number.`
+  String get phoneNumberRequired {
+    return Intl.message(
+      'Please enter your phone number.',
+      name: 'phoneNumberRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Invalid phone number. Please enter a valid phone number.`
+  String get phoneNumberInvalid {
+    return Intl.message(
+      'Invalid phone number. Please enter a valid phone number.',
+      name: 'phoneNumberInvalid',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please select your gender.`
+  String get genderRequired {
+    return Intl.message(
+      'Please select your gender.',
+      name: 'genderRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please select a sport.`
+  String get sportRequired {
+    return Intl.message(
+      'Please select a sport.',
+      name: 'sportRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please select your position.`
+  String get positionRequired {
+    return Intl.message(
+      'Please select your position.',
+      name: 'positionRequired',
       desc: '',
       args: [],
     );
