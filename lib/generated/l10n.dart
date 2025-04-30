@@ -645,10 +645,10 @@ class S {
     );
   }
 
-  /// `Please enter your birth date.`
+  /// `Please enter birth date.`
   String get birthDateRequired {
     return Intl.message(
-      'Please enter your birth date.',
+      'Please enter birth date.',
       name: 'birthDateRequired',
       desc: '',
       args: [],

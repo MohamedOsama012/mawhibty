@@ -62,7 +62,7 @@
   "chooseSport": "بتلعب إيه؟",
   "choosePosition": "مركزك إيه؟",
   "registerAndStartJourney": "سجّل وابدأ الرحلة!",
-  "birthDateRequired": "يرجى إدخال تاريخ ميلادك.",
+  "birthDateRequired": "يرجى إدخال تاريخ الميلاد.",
   "birthDateInvalid": "تاريخ غير صالح، يرجى اختيار تاريخ صحيح.",
   "birthDateFuture": "التاريخ يجب أن يكون في الماضي.",
 

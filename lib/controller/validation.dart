@@ -38,10 +38,13 @@ String? validatePhone(String? value, BuildContext context) {
   if (value == null || value.isEmpty) {
     return S.of(context).phoneNumberRequired;
   }
-  final phoneRegExp = RegExp(r'^\+?[1-9]\d{1,14}$');
+
+  final phoneRegExp = RegExp(r'^01[0-2,5][0-9]{8}$');
+
   if (!phoneRegExp.hasMatch(value)) {
     return S.of(context).phoneNumberInvalid;
   }
+
   return null;
 }
 

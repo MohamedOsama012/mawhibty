@@ -31,7 +31,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "تاريخ غير صالح، يرجى اختيار تاريخ صحيح.",
     ),
     "birthDateRequired": MessageLookupByLibrary.simpleMessage(
-      "يرجى إدخال تاريخ ميلادك.",
+      "يرجى إدخال تاريخ الميلاد.",
     ),
     "chooseGender": MessageLookupByLibrary.simpleMessage("حدد نوعك"),
     "choosePosition": MessageLookupByLibrary.simpleMessage("مركزك إيه؟"),

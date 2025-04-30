@@ -11,3 +11,5 @@ class RegisterChangeSportState extends RegisterStates {}
 class RegisterChangePositionState extends RegisterStates {}
 
 class RegisterChangeGenderState extends RegisterStates {}
+
+class RedisterSwitchRoleState extends RegisterStates {}

@@ -9,11 +9,20 @@ class RegisterCubit extends Cubit<RegisterStates> {
   static RegisterCubit get(context) => BlocProvider.of(context);
 
   bool isPassword = true;
+  bool isConfirmPassword = true;
 
   IconData suffix = Icons.visibility_off_outlined;
+  IconData confirmSuffix = Icons.visibility_off_outlined;
 
   void changeVisibility() {
     isPassword = !isPassword;
+    suffix =
+        isPassword ? Icons.visibility_off_outlined : Icons.visibility_outlined;
+    emit(RegisterChangeVisibilityState());
+  }
+
+  void changeConfirmVisibility() {
+    isConfirmPassword = !isConfirmPassword;
     suffix =
         isPassword ? Icons.visibility_off_outlined : Icons.visibility_outlined;
     emit(RegisterChangeVisibilityState());
@@ -81,6 +90,14 @@ class RegisterCubit extends Cubit<RegisterStates> {
     emit(RegisterChangeSportState());
   }
 
+/*************  ✨ Windsurf Command ⭐  *************/
+  /// Updates the current position value and emits a RegisterChangePositionState.
+  ///
+  /// Takes a [value] which represents the selected position and updates
+  /// the [positionValue] with it. This triggers a state change in the
+  /// RegisterCubit to reflect the change in position selection.
+
+/*******  4c40a1cd-cf6a-48b2-a2c7-15fdd8d7aa0b  *******/
   void changePosition(String? value) {
     positionValue = value;
     emit(RegisterChangePositionState());
@@ -89,5 +106,12 @@ class RegisterCubit extends Cubit<RegisterStates> {
   void changeGender(String? value) {
     genderValue = value;
     emit(RegisterChangeGenderState());
+  }
+
+  bool isPlayer = true;
+
+  void switchRole() {
+    isPlayer = !isPlayer;
+    emit(RedisterSwitchRoleState());
   }
 }

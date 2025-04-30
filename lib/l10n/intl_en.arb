@@ -69,7 +69,7 @@
   "chooseSport": "What sport do you play?",
   "choosePosition": "What's your position?",
   "registerAndStartJourney": "Sign Up & Start Your Journey!",
-  "birthDateRequired": "Please enter your birth date.",
+  "birthDateRequired": "Please enter birth date.",
   "birthDateInvalid": "Invalid date. Please choose a valid date.",
   "birthDateFuture": "The date must be in the past.",
 

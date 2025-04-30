@@ -31,7 +31,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Invalid date. Please choose a valid date.",
     ),
     "birthDateRequired": MessageLookupByLibrary.simpleMessage(
-      "Please enter your birth date.",
+      "Please enter birth date.",
     ),
     "chooseGender": MessageLookupByLibrary.simpleMessage("Choose Your Gender"),
     "choosePosition": MessageLookupByLibrary.simpleMessage(

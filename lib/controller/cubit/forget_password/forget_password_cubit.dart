@@ -6,13 +6,21 @@ class ForgetPasswordCubit extends Cubit<ForgetPasswordStates> {
   ForgetPasswordCubit() : super(ForgetPasswordInitialState());
 
   static ForgetPasswordCubit get(context) => BlocProvider.of(context);
-
   bool isPassword = true;
+  bool isConfirmPassword = true;
 
   IconData suffix = Icons.visibility_off_outlined;
+  IconData confirmSuffix = Icons.visibility_off_outlined;
 
   void changeVisibility() {
     isPassword = !isPassword;
+    suffix =
+        isPassword ? Icons.visibility_off_outlined : Icons.visibility_outlined;
+    emit(ForgetPasswordChangeVisibility());
+  }
+
+  void changeConfirmVisibility() {
+    isConfirmPassword = !isConfirmPassword;
     suffix =
         isPassword ? Icons.visibility_off_outlined : Icons.visibility_outlined;
     emit(ForgetPasswordChangeVisibility());
